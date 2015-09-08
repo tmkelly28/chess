@@ -59,15 +59,24 @@ function drawGameBoardHTML() {
   }
 }
 function greetingHTML() {
-  viewer.html("Welcome to Chess! White moves first.");
+  viewer.html("Welcome to Chess!" +
+              "<br />" +
+              "White moves first.");
 }
 function notLegalHTML() {
-  viewer.html('Not a legal move.');
+  viewer.html('Not a legal move.' +
+             "<br />" +
+              game.turn + "'s turn");
 }
-function validMove(targetRow, targetCol) {
+function validMoveHTML(targetRow, targetCol) {
   viewer.html("Moved to: " + 
-              targetRow.toString() + 
-              targetCol.toString() +
+              targetRow.toString().toUpperCase() + 
+              (targetCol + 1).toString() +
               "<br />" +
               game.turn + "'s turn");
+}
+function endGameHTML() {
+  viewer.html("Game over" +
+              "<br />" +
+              game.turn + " is the winner!")
 }

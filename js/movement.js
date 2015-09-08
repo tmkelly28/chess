@@ -48,32 +48,54 @@ function targetDoesNotHopDiagonal (startRow, startCol, targetRow, targetCol) {
   // difference determines how many squares to check
   var difference = Math.abs(startRow.charCodeAt(0) - targetRow.charCodeAt(0)) - 1;
   
-  // start with the lower of the two rows
+  // get the unicode values of the start and target rows, for comparison
   startRow = startRow.charCodeAt(0);
   targetRow = targetRow.charCodeAt(0);
-  if (startRow > targetRow) {
-    var lowRow = targetRow;
-  } else {
-    lowRow = startRow;
-  }
   
-  // start with the lower of the two columns
-  if (startCol > targetCol) {
-    var lowCol = targetCol;
-  } else {
-    lowCol = startCol;
-  }
+  // use the starting row and col for looping through squares
+  var row = startRow;
+  var col = startCol;
   
-  // increment the row/column pair and check that square
-  for (var i = 0; i < difference; i++) {
-    lowRow = lowRow + 1;
-    lowCol = lowCol + 1;
-    if (targetIsOccupied(String.fromCharCode(lowRow), lowCol)) {
-      return false;
+  // depending on the direction of movement, check squares for pieces
+  if (startRow < targetRow && startCol > targetCol) {
+    // northwest movement: increase row, decrease col
+    for (var i = 0; i < difference; i++) {
+      row += 1;
+      col -= 1;
+      if (targetIsOccupied(String.fromCharCode(row), col)) {
+        return false;
+      }
+    }
+  } else if (startRow < targetRow && startCol < targetCol) {
+    // northeast movement: increase row, increase col
+    for (var i = 0; i < difference; i++) {
+      row += 1;
+      col += 1;
+      if (targetIsOccupied(String.fromCharCode(row), col)) {
+        return false;
+      }
+    }
+  } else if (startRow > targetRow && startCol > targetCol) {
+    // southwest movement: decrease row, decrease col
+    for (var i = 0; i < difference; i++) {
+      row -= 1;
+      col -= 1;
+      if (targetIsOccupied(String.fromCharCode(row), col)) {
+        return false;
+      }
+    }
+  } else if (startRow > targetRow && startCol < targetCol) {
+    // southeast movement: decrease row, increase col
+    for (var i = 0; i < difference; i++) {
+      row -= 1;
+      col += 1;
+      if (targetIsOccupied(String.fromCharCode(row), col)) {
+        return false;
+      }
     }
   }
   return true;
-}
+} 
 function targetDoesNotHopVertical (startRow, targetRow, col) {
   startRow = startRow.toString().charCodeAt(0);
   targetRow = targetRow.toString().charCodeAt(0);

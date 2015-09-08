@@ -1,6 +1,7 @@
 // Game constructor function
 function Game() {
   this.turn = "white";
+  this.gameOver = false;
 }
 Game.prototype.initializeNewGame = function() {
   // Initialize all instances of Piece
@@ -51,16 +52,12 @@ Game.prototype.changeTurn = function() {
 };
 Game.prototype.checkForCapture = function(targetRow, targetCol) {
   if (grid[targetRow][targetCol]) {
-    if (grid[targetRow][targetCol].type === "King") {
-      this.endGame()
-    }
     grid[targetRow][targetCol].captured === true;
   }
 };
 Game.prototype.endGame = function () {
-  console.log("Game over");
-  game = new Game();
-  game.initializeNewGame();
+  endGameHTML();
+  this.gameOver = true;
 };
 
 // Piece constructor function
@@ -73,12 +70,16 @@ function Piece (row, col, color, id) {
   grid[row][col] = this;
 }
 Piece.prototype.move = function (targetRow, targetCol) {
-  
   // If the move is legal
   if (this.isLegalMove(targetRow, targetCol) &&
   targetNotOccupiedBySameColor(targetRow, targetCol, this.color) &&
-  (this.captured === false) &&
+  this.captured === false &&
   isColorTurn(this.color)) {
+    
+    // Check if the king has been captured
+    if (grid[targetRow][targetCol].type === "King") {
+      game.endGame();
+    }
     
     // Check if a piece has been captured
     game.checkForCapture(targetRow, targetCol);
@@ -94,8 +95,11 @@ Piece.prototype.move = function (targetRow, targetCol) {
     
     // Call functions to adjust the graphic display
     drawGameBoardHTML();
-    validMove(targetRow, targetCol);
-  
+    if (game.gameOver) {
+      return;
+    } else {
+    validMoveHTML(targetRow, targetCol);
+    }
   // Case when the move is not legal
   } else {
     // Call functions to alert the user in the graphic display
@@ -217,7 +221,6 @@ function Bishop(row, col, color, id) {
 }
 Bishop.prototype = Object.create(Piece.prototype);
 Bishop.prototype.isLegalMove = function(targetRow, targetCol) {
-  
   // Diagonal movement
   if (targetIsDiagonal(this.row, this.col, targetRow, targetCol) &&
   targetDoesNotHopDiagonal (this.row, this.col, targetRow, targetCol)) {

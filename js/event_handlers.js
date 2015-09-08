@@ -6,12 +6,14 @@ $(document).ready(function() {
   
   // Selecting a square
   square.click(function () {
-    if ($(this).hasClass("selected")) {
-      $(this).removeClass("selected");
-      pieceSelected = false;
-    } else if (pieceSelected === false) {
-      $(this).addClass("selected");
-      pieceSelected = true;
+    if (!game.gameOver) {
+      if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+        pieceSelected = false;
+      } else if (pieceSelected === false) {
+        $(this).addClass("selected");
+        pieceSelected = true;
+      }
     }
   });
   

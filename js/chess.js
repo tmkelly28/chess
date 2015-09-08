@@ -27,8 +27,6 @@ var images = {
   blackKing: '<img src="images/bking.svg" />',
 }
 
-// Starts a new game on page load
-$(document).ready(function() {
-  var game = new Game();
-  game.initializeNewGame();
-});
+// Starts a new game
+var game = new Game();
+game.initializeNewGame();
