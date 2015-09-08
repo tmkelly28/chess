@@ -1,0 +1,36 @@
+body {
+  font-family: Courier;
+  background-color: ghostwhite;
+}
+.container {
+  margin-top: 4%;
+  margin-left: 36%;
+}
+h1 {
+  text-align: center;
+}
+.row {
+  display: inline-block;
+  width: 100%;
+}
+.square {
+  height: 3em;
+  width: 3em;
+  margin: 1px 1px 1px 1px;
+  position: relative;
+  float: left;
+  opacity: 0.8;
+}
+.blackSquare {
+  background-color: indianred;
+}
+.whiteSquare {
+  background-color: cornsilk;
+}
+.selected {
+  background-color: navy;
+  opacity: 0.5;
+}
+p {
+  display: none;
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello Chess</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <h1>Hello Chess!</h1>
+    <div class="container">
+      <div class="row" id="h">
+        <div class="blackSquare square" id="h0"></div>
+        <div class="whiteSquare square" id="h1"></div>
+        <div class="blackSquare square" id="h2"></div>
+        <div class="whiteSquare square" id="h3"></div>
+        <div class="blackSquare square" id="h4"></div>
+        <div class="whiteSquare square" id="h5"></div>
+        <div class="blackSquare square" id="h6"></div>
+        <div class="whiteSquare square" id="h7"></div>
+      </div>
+      <div class="row" id="g">
+        <div class="whiteSquare square" id="g0"></div>
+        <div class="blackSquare square" id="g1"></div>
+        <div class="whiteSquare square" id="g2"></div>
+        <div class="blackSquare square" id="g3"></div>
+        <div class="whiteSquare square" id="g4"></div>
+        <div class="blackSquare square" id="g5"></div>
+        <div class="whiteSquare square" id="g6"></div>
+        <div class="blackSquare square" id="g7"></div>
+      </div>
+      <div class="row" id="f">
+        <div class="blackSquare square" id="f0"></div>
+        <div class="whiteSquare square" id="f1"></div>
+        <div class="blackSquare square" id="f2"></div>
+        <div class="whiteSquare square" id="f3"></div>
+        <div class="blackSquare square" id="f4"></div>
+        <div class="whiteSquare square" id="f5"></div>
+        <div class="blackSquare square" id="f6"></div>
+        <div class="whiteSquare square" id="f7"></div>
+      </div>
+      <div class="row" id="e">
+        <div class="whiteSquare square" id="e0"></div>
+        <div class="blackSquare square" id="e1"></div>
+        <div class="whiteSquare square" id="e2"></div>
+        <div class="blackSquare square" id="e3"></div>
+        <div class="whiteSquare square" id="e4"></div>
+        <div class="blackSquare square" id="e5"></div>
+        <div class="whiteSquare square" id="e6"></div>
+        <div class="blackSquare square" id="e7"></div>
+      </div>
+      <div class="row" id="d">
+        <div class="blackSquare square" id="d0"></div>
+        <div class="whiteSquare square" id="d1"></div>
+        <div class="blackSquare square" id="d2"></div>
+        <div class="whiteSquare square" id="d3"></div>
+        <div class="blackSquare square" id="d4"></div>
+        <div class="whiteSquare square" id="d5"></div>
+        <div class="blackSquare square" id="d6"></div>
+        <div class="whiteSquare square" id="d7"></div>
+      </div>
+      <div class="row" id="c">
+        <div class="whiteSquare square" id="c0"></div>
+        <div class="blackSquare square" id="c1"></div>
+        <div class="whiteSquare square" id="c2"></div>
+        <div class="blackSquare square" id="c3"></div>
+        <div class="whiteSquare square" id="c4"></div>
+        <div class="blackSquare square" id="c5"></div>
+        <div class="whiteSquare square" id="c6"></div>
+        <div class="blackSquare square" id="c7"></div>
+      </div>
+      <div class="row" id="b">
+        <div class="blackSquare square" id="b0"></div>
+        <div class="whiteSquare square" id="b1"></div>
+        <div class="blackSquare square" id="b2"></div>
+        <div class="whiteSquare square" id="b3"></div>
+        <div class="blackSquare square" id="b4"></div>
+        <div class="whiteSquare square" id="b5"></div>
+        <div class="blackSquare square" id="b6"></div>
+        <div class="whiteSquare square" id="b7"></div>
+      </div>
+      <div class="row" id="a">
+        <div class="whiteSquare square" id="a0"></div>
+        <div class="blackSquare square" id="a1"></div>
+        <div class="whiteSquare square" id="a2"></div>
+        <div class="blackSquare square" id="a3"></div>
+        <div class="whiteSquare square" id="a4"></div>
+        <div class="blackSquare square" id="a5"></div>
+        <div class="whiteSquare square" id="a6"></div>
+        <div class="blackSquare square" id="a7"></div>
+      </div>
+    </div>
+    <h1 id="viewer"></h1>
+    <p id="chess"></p>
+  </body>
+  
+  <script src="manipulators.js"></script>
+  <script src="constructor.js"></script>
+  <script src="movement.js"></script>
+  <script src="chess.js"></script>
+  <script src="event_handlers.js"></script>
+  
+</html>
