@@ -76,6 +76,9 @@ Piece.prototype.move = function (targetRow, targetCol) {
   this.captured === false &&
   isColorTurn(this.color)) {
     
+    // Set Pawn's firstMove property to false for successful first moves
+    this.firstMove = false;
+    
     // Check if the king has been captured
     if (grid[targetRow][targetCol].type === "King") {
       game.endGame();
@@ -130,7 +133,6 @@ Pawn.prototype.isLegalMove = function (targetRow, targetCol) {
   targetIsVertical(this.col, targetCol) &&
   (this.firstMove === true) &&
   targetIsTwoSpacesAhead(this.row, targetRow)) {
-    this.firstMove = false;
     return true;
   
   // Moving forward by one square to an empty square

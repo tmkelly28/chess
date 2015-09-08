@@ -9,6 +9,9 @@ body {
 h1 {
   text-align: center;
 }
+h3 {
+  text-align: center;
+}
 .row {
   display: inline-block;
   width: 100%;
@@ -31,6 +34,22 @@ h1 {
   background-color: navy;
   opacity: 0.5;
 }
-p {
+#warning {
   display: none;
+}
+#instructions {
+  display: none;
+}
+
+/* Display error if the screen is too small */
+@media only screen and (max-width: 700px) {
+  .container {
+    display: none;
+  }
+  #viewer {
+    display: none;
+  }
+  #warning {
+    display: inline-block;
+  }
 }
